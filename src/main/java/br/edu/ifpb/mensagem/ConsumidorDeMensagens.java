@@ -4,7 +4,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.jms.JMSConsumer;
 import javax.jms.JMSContext;
@@ -30,7 +29,8 @@ public class ConsumidorDeMensagens {
         try {
             JMSConsumer consumer = this.context.createConsumer(queue);
 //        String corpo = consumer.receiveBody(String.class);
-            Message mensagem = consumer.receive();
+//            Message mensagem = consumer.receive(1000);// null se não tiver mensagem
+            Message mensagem = consumer.receive();// null se não tiver mensagem
             String corpo = mensagem.getBody(String.class);
             return corpo;
         } catch (JMSException ex) {

@@ -2,10 +2,7 @@ package br.edu.ifpb.mensagem;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.inject.Inject;
-import javax.jms.JMSException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ControladorDeMensagens extends HttpServlet {
 
     @Inject
-    private ProdutoDeMensagens produtor;
+    private ProdutorDeMensagens produtor;
 
     @Inject
     private ConsumidorDeMensagens consumidor;
